@@ -1,0 +1,57 @@
+
+
+--EC2作成
+C:\onedrive\ドキュメント\04_Laravel\21_AWS
+20210928_EC2_GIT_PDF_構築.txt
+
+-- 開発用Webサーバー起動
+php artisan serve --port 8000
+
+【Laravel プロジェクトフォルダで実行する必要あり】
+-- laravel-dompdf
+composer require barryvdh/laravel-dompdf
+ Using version ^0.9.0 for barryvdh/laravel-dompdf
+
+-- laravel-dompdf 設定変更
+php artisan vendor:publish --provider="Barryvdh\DomPDF\ServiceProvider"
+
+config/dompdf.php
+
+
+
+-- IPAフォント
+IPAfont00303
+
+strage\fonts
+ipag.ttf
+ipagp.ttf
+ipam.ttf
+ipamp.ttf
+
+
+
+作成予定ページ
+http://127.0.0.1:8000/
+
+http://127.0.0.1:8000/pdfpage
+リンク
+テストPDF表示
+テストPDFダウンロード
+
+http://127.0.0.1:8000/pdfpage/pdfshow
+
+http://127.0.0.1:8000/pdfpage/pdfdown
+
+
+ビューファイル 作成
+pdfpage\pdfpage.blade.php
+pdfpage\pdftest01.blade.php
+
+コントローラー作成
+php artisan make:controller PdfpageController
+
+
+
+
+
+

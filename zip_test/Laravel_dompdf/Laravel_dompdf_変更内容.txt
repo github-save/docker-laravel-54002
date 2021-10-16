@@ -1,0 +1,95 @@
+
+
+--web.php
+
+Route::get('/pdfdown', 'App\Http\Controllers\PdftestController@downpdf');
+Route::get('/pdfshow', 'App\Http\Controllers\PdftestController@showpdf');
+
+
+--PdftestController.php
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+use PDF;
+
+class PdftestController extends Controller
+{
+    //
+    public function downpdf(){
+        // return view('welcome');
+        $pdf=PDF::loadView('pdftest_pdf02');
+        // $pdf = \PDF::loadView('pdftest_pdf');
+        return $pdf->download('pdftestfile.pdf');
+    }
+    
+    public function showpdf(){
+        // return view('welcome');
+        $pdf = \PDF::loadView('pdftest_pdf02');
+        // $pdf = \PDF::loadView('pdftest_pdf');
+        return $pdf->stream('pdftestfile.pdf');
+    }
+    
+}
+
+
+--/home/ec2-user/html/cms/resources/views/pdftest_pdf.blade.php
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        @font-face {
+            font-family: ipag;
+            font-style: normal;
+            font-weight: normal;
+            src: url('{{ storage_path('fonts/ipag.ttf') }}') format('truetype');
+        }
+        @font-face {
+            font-family: ipag;
+            font-style: bold;
+            font-weight: bold;
+            src: url('{{ storage_path('fonts/ipag.ttf') }}') format('truetype');
+        }
+        body {
+            font-family: ipag !important;
+        }
+    </style>
+</head>
+<body>
+日本語の表示
+<div>
+    <table>
+        <tr>
+            <td style="width:50%;">
+                <div style="padding:15px;">
+                    テストテストテストテストテストテストテストテスト
+                </div>
+            </td>
+            <td>test</td>
+            <td>test</td>
+        </tr>
+        <tr>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+        </tr>
+        <tr>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
