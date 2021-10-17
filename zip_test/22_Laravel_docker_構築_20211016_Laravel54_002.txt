@@ -1,0 +1,38 @@
+
+--Dockerfile
+ mysql:5.7
+ php:7.1 
+
+
+docker-compose up -d
+
+docker-compose exec app composer create-project --prefer-dist laravel/laravel . 5.4.*
+
+--warning
+Package jakub-onderka/php-console-color is abandoned, you should avoid using it. Use php-parallel-lint/php-console-color instead.
+Package jakub-onderka/php-console-highlighter is abandoned, you should avoid using it. Use php-parallel-lint/php-console-highlighter instead.
+Package mtdowling/cron-expression is abandoned, you should avoid using it. Use dragonmantank/cron-expression instead.
+Package fzaninotto/faker is abandoned, you should avoid using it. No replacement was suggested.
+Package phpunit/php-token-stream is abandoned, you should avoid using it. No replacement was suggested.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Package sebastian/resource-operations is abandoned, you should avoid using it. No replacement was suggested.
+
+
+docker-compose exec app php artisan storage:link
+
+docker-compose exec app chmod -R 777 storage bootstrap/cache
+
+docker-compose exec app php artisan migrate
+--Migration table created successfully.
+Migrating: 2014_10_12_000000_create_users_table
+Migrated:  2014_10_12_000000_create_users_table
+Migrating: 2014_10_12_100000_create_password_resets_table
+Migrated:  2014_10_12_100000_create_password_resets_table
+
+http://localhost/
+--•\Ž¦OK
+
+
+
+
+
