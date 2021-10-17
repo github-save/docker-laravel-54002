@@ -55,4 +55,4 @@ services:
       context: .
       dockerfile: ./infra/docker/mailhog/Dockerfile
     ports:
-      - ${MAIL_PORT}:8025
+      - ${MAIL_PORT-8025}:8025
