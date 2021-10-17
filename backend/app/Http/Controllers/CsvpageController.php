@@ -37,12 +37,13 @@ class CsvpageController extends Controller
     private function validateUploadFile(Request $request)
     {
         return \Validator::make($request->all(), [
-                'csv_file' => 'required|file|mimetypes:text/plain|mimes:csv,txt',
+                'csv_file' => 'required|file|mimetypes:text/plain|mimes:csv,txt|max:10240',
             ], [
                 'csv_file.required'  => 'ファイルを選択してください。',
                 'csv_file.file'      => 'ファイルアップロードに失敗しました。',
                 'csv_file.mimetypes' => 'ファイル形式が不正です。',
                 'csv_file.mimes'     => 'ファイル拡張子が異なります。',
+                'csv_file.max'       => 'ファイルサイズが10MBを超えています。',
             ]
         );
     }
