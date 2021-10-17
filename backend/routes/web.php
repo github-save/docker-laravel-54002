@@ -11,10 +11,13 @@
 |
 */
 
+//use Illuminate\Http\Request;
+
 Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/csvpage', 'CsvpageController@page1');
 
 Route::get('/phpinfo', function () {
     return phpinfo();
