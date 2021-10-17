@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/csvpage', 'CsvpageController@page1');
+Route::post('/csvpage/import-csv', 'CsvpageController@importcsv');
 
 Route::get('/phpinfo', function () {
     return phpinfo();
