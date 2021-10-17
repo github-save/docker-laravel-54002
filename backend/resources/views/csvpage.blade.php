@@ -9,6 +9,11 @@
 @endsection
 
 @section('content')
+
+@if(Session::has('message'))
+メッセージ：{{ session('message') }}
+@endif
+
     <p>CSV PAGE</p>
 
 
