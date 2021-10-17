@@ -10,7 +10,9 @@ class CsvpageController extends Controller
         return view('csvpage');
     }
 
-    public function importcsv(){
+    public function importcsv(Request $request){
+        // dd($request->all());
+        dd($request->file('csv_file'));
         return view('csvdata');
     }
 
